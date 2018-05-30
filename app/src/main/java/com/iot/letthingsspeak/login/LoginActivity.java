@@ -2,6 +2,7 @@ package com.iot.letthingsspeak.login;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.ImageViewTarget;
+import com.iot.letthingsspeak.MainActivity;
 import com.iot.letthingsspeak.R;
 
 import java.util.List;
@@ -32,6 +34,22 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        loginView();
+
+    }
+
+    public void login(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
+
+
+
+    public void loginView() {
         ButterKnife.bind(this);
         final AnimatedViewPager pager= ButterKnife.findById(this,R.id.pager);
         final ImageView background=ButterKnife.findById(this,R.id.scrolling_background);
@@ -69,7 +87,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-
     private int[] screenSize(){
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
